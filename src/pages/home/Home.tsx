@@ -1,10 +1,12 @@
-import { Hero } from '../../components/hero/Hero';
+import  Hero  from '../../components/hero/Hero';
+import useDocumentTitle from '../../hooks/useDocumentTitle';
 
 export const Home = () => {
+  useDocumentTitle('Inicio | TECHZ');
+
   return (
     <main>
       <Hero />
-      {/* Próximamente: Categorías y Productos Destacados */}
     </main>
   );
 };

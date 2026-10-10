@@ -1,175 +1,228 @@
 .hero {
-  background: linear-gradient(135deg, #0a0a0a 0%, #171717 100%);
-  color: #ffffff;
-  padding: 4rem 2rem;
-  border-bottom: 1px solid #262626;
-  min-height: 70vh;
-  display: flex;
-  align-items: center;
-}
-
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
+  min-height: calc(100vh - 70px);
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 3rem;
+  grid-template-columns: 1.1fr 0.9fr;
   align-items: center;
-  width: 100%;
-}
-
-@media (min-width: 768px) {
-  .container {
-    grid-template-columns: 1fr 1fr;
-  }
+  gap: 40px;
+  padding: 80px 8%;
+  background:
+    radial-gradient(
+      circle at 75% 50%,
+      rgba(229, 9, 20, 0.12),
+      transparent 35%
+    ),
+    #0a0a0a;
+  overflow: hidden;
 }
 
 .content {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  max-width: 650px;
+  z-index: 2;
 }
 
-.badge {
-  align-self: flex-start;
-  background-color: rgba(220, 38, 38, 0.15);
-  color: #ef4444;
-  border: 1px solid rgba(239, 68, 68, 0.3);
-  padding: 0.4rem 1rem;
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
+.tag {
+  display: inline-block;
+  margin-bottom: 24px;
+  color: #e50914;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
 }
 
-.title {
-  font-size: 2.8rem;
-  font-weight: 800;
-  line-height: 1.15;
+.content h1 {
+  margin: 0;
   color: #ffffff;
+  font-size: clamp(44px, 5vw, 72px);
+  line-height: 1.05;
+  font-weight: 800;
+  letter-spacing: -2px;
 }
 
-.highlight {
-  color: #dc2626;
-  background: linear-gradient(90deg, #dc2626, #f87171);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.content h1 span {
+  color: #e50914;
 }
 
-.description {
-  font-size: 1.1rem;
-  color: #a3a3a3;
-  line-height: 1.6;
-  max-width: 500px;
+.content p {
+  max-width: 540px;
+  margin: 28px 0 36px;
+  color: #999999;
+  font-size: 17px;
+  line-height: 1.7;
 }
 
 .actions {
   display: flex;
-  gap: 1rem;
-  margin-top: 0.5rem;
-}
-
-.btnPrimary {
-  background-color: #dc2626;
-  color: #ffffff;
-  padding: 0.85rem 1.8rem;
-  border-radius: 8px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.2s ease-in-out;
-  border: none;
-  cursor: pointer;
-}
-
-.btnPrimary:hover {
-  background-color: #b91c1c;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4);
-}
-
-.btnSecondary {
-  background-color: transparent;
-  color: #e5e5e5;
-  padding: 0.85rem 1.8rem;
-  border-radius: 8px;
-  font-weight: 600;
-  text-decoration: none;
-  border: 1px solid #404040;
-  transition: all 0.2s ease-in-out;
-  cursor: pointer;
-}
-
-.btnSecondary:hover {
-  border-color: #a3a3a3;
-  background-color: rgba(255, 255, 255, 0.05);
-}
-
-.visualContainer {
-  display: flex;
-  justify-content: center;
   align-items: center;
+  gap: 16px;
 }
 
-.cardPreview {
-  background: rgba(23, 23, 23, 0.8);
-  border: 1px solid #333;
-  border-radius: 16px;
-  padding: 1.5rem;
-  width: 100%;
-  max-width: 400px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+.primaryButton,
+.secondaryButton {
+  padding: 14px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.primaryButton {
+  background: #e50914;
+  color: #ffffff;
+}
+
+.primaryButton:hover {
+  background: #c90812;
+  transform: translateY(-2px);
+}
+
+.secondaryButton {
+  border: 1px solid #333333;
+  color: #ffffff;
+  background: #111111;
+}
+
+.secondaryButton:hover {
+  border-color: #e50914;
+  transform: translateY(-2px);
+}
+
+.visual {
   position: relative;
-  overflow: hidden;
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.cardPreview::before {
+.circle {
+  position: absolute;
+  width: 390px;
+  height: 390px;
+  border: 1px solid rgba(229, 9, 20, 0.35);
+  border-radius: 50%;
+  box-shadow:
+    0 0 80px rgba(229, 9, 20, 0.12),
+    inset 0 0 60px rgba(229, 9, 20, 0.06);
+}
+
+.circle::before,
+.circle::after {
   content: '';
   position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(220, 38, 38, 0.1) 0%, transparent 70%);
-  pointer-events: none;
+  border-radius: 50%;
+  border: 1px solid rgba(229, 9, 20, 0.18);
 }
 
-.imagePlaceholder {
-  width: 100%;
-  height: 220px;
-  background-color: #171717;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #525252;
-  font-size: 3rem;
-  margin-bottom: 1.2rem;
-  border: 1px dashed #404040;
+.circle::before {
+  inset: 35px;
 }
 
-.cardInfo {
+.circle::after {
+  inset: 80px;
+}
+
+.techCard {
+  position: relative;
+  z-index: 2;
+  width: 230px;
+  height: 280px;
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(145deg, #191919, #0d0d0d);
+  border: 1px solid #303030;
+  border-radius: 18px;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6);
+  transform: rotate(-6deg);
 }
 
-.cardCategory {
-  font-size: 0.75rem;
-  color: #dc2626;
+.techCard span {
+  margin-bottom: 20px;
+  color: #e50914;
+  font-size: 12px;
   font-weight: 700;
-  text-transform: uppercase;
+  letter-spacing: 3px;
 }
 
-.cardTitle {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #f5f5f5;
-}
-
-.cardPrice {
-  font-size: 1.25rem;
-  font-weight: 800;
+.techCard strong {
   color: #ffffff;
+  font-size: 48px;
+  letter-spacing: -2px;
+}
+
+.techCard small {
+  margin-top: 10px;
+  color: #666666;
+  font-size: 10px;
+  letter-spacing: 4px;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 70px 6%;
+    text-align: center;
+  }
+
+  .content {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .content p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .actions {
+    justify-content: center;
+  }
+
+  .visual {
+    min-height: 360px;
+  }
+
+  .circle {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+@media (max-width: 500px) {
+  .hero {
+    padding: 50px 20px;
+  }
+
+  .content h1 {
+    font-size: 42px;
+  }
+
+  .actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .visual {
+    min-height: 300px;
+  }
+
+  .techCard {
+    width: 190px;
+    height: 230px;
+  }
+
+  .techCard strong {
+    font-size: 40px;
+  }
 }

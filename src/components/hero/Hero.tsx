@@ -1,40 +1,36 @@
+import { Link } from 'wouter';
 import styles from './Hero.module.css';
 
-export const Hero = () => {
+function Hero() {
   return (
     <section className={styles.hero}>
-      <div className={styles.container}>
-        <div className={styles.content}>
-          <span className={styles.badge}>Tecnología de Alto Rendimiento</span>
-          <h1 className={styles.title}>
-            Equípate para tu <span className={styles.highlight}>Próximo Nivel</span>
-          </h1>
-          <p className={styles.description}>
-            Descubre los mejores componentes, laptops y accesorios tecnológicos con la potencia y el respaldo que necesitas para tus proyectos.
-          </p>
-          <div className={styles.actions}>
-            <a href="#products" className={styles.btnPrimary}>
-              Ver Productos
-            </a>
-            <a href="#categories" className={styles.btnSecondary}>
-              Categorías
-            </a>
-          </div>
-        </div>
+      <div className={styles.content}>
+        <span className={styles.tag}>TECNOLOGÍA QUE TE IMPULSA</span>
 
-        <div className={styles.visualContainer}>
-          <div className={styles.cardPreview}>
-            <div className={styles.imagePlaceholder}>
-              💻
-            </div>
-            <div className={styles.cardInfo}>
-              <span className={styles.cardCategory}>Laptop Setup Pro</span>
-              <h3 className={styles.cardTitle}>Techz Power Workstation</h3>
-              <p className={styles.cardPrice}>$1.299.990</p>
-            </div>
-          </div>
+        <h1>
+          Tienda tecnologica
+          <br />
+          <span>para gamers</span>
+        </h1>
+
+        <p>Encuentra tecnología, accesorios y productos para gaming de primera a ultima generacion.</p>
+
+        <div className={styles.actions}>
+          <Link href="/products" className={styles.primaryButton}>Ver productos</Link>
+          <Link href="/register" className={styles.secondaryButton}> Crear cuenta</Link>
+        </div>
+      </div>
+
+      <div className={styles.visual}>
+        <div className={styles.circle}></div>
+        <div className={styles.techCard}>
+          <span>TECHZ</span>
+          <strong>TECH</strong>
+          <small>INNOVATION</small>
         </div>
       </div>
     </section>
   );
-};
+}
+
+export default Hero;
